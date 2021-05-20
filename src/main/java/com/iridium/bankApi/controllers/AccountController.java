@@ -52,7 +52,7 @@ public class AccountController {
         } catch (RuntimeException e) {
             Map<String, Object> response = new HashMap<>();
             response.put("error", e.getMessage());
-            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(response, HttpStatus.UNPROCESSABLE_ENTITY);
         }
 
         var accountMap = new ObjectMapper().convertValue(savedAccount, Map.class);
