@@ -3,7 +3,6 @@ package com.iridium.bankApi.services;
 import com.iridium.bankApi.domain.Account;
 import com.iridium.bankApi.dtos.AccountDto;
 import com.iridium.bankApi.repositories.AccountRepository;
-import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
