@@ -28,7 +28,7 @@ public class AccountController {
         } catch (RuntimeException e) {
             Map<String, Object> response = new HashMap<>();
             response.put("error", e.getMessage());
-            return new ResponseEntity<>(response, HttpStatus.UNPROCESSABLE_ENTITY);
+            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
         }
 
         var accountMap = new ObjectMapper().convertValue(account, Map.class);
@@ -52,7 +52,7 @@ public class AccountController {
         } catch (RuntimeException e) {
             Map<String, Object> response = new HashMap<>();
             response.put("error", e.getMessage());
-            return new ResponseEntity<>(response, HttpStatus.UNPROCESSABLE_ENTITY);
+            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
         }
 
         var accountMap = new ObjectMapper().convertValue(savedAccount, Map.class);
@@ -73,7 +73,7 @@ public class AccountController {
         } catch (RuntimeException e) {
             Map<String, Object> response = new HashMap<>();
             response.put("error", e.getMessage());
-            return new ResponseEntity<>(response, HttpStatus.UNPROCESSABLE_ENTITY);
+            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
         }
 
         var accountMap = new ObjectMapper().convertValue(account, Map.class);
@@ -81,7 +81,11 @@ public class AccountController {
         return new ResponseEntity<>(accountMap, HttpStatus.OK);
     }
 
-    @PostMapping(value = "/accounts/{number}/withdraw", consumes = "application/json", produces = "application/json")
+    @PostMapping(
+            value = "/accounts/{number}/withdraw",
+            consumes = "application/json",
+            produces = "application/json"
+    )
     public ResponseEntity<Map<String, Object>> withdraw(
             @PathVariable(value = "number") Integer number, @RequestBody Map<String, Double> requestBody
     ){
@@ -93,7 +97,7 @@ public class AccountController {
         } catch (RuntimeException e) {
             Map<String, Object> response = new HashMap<>();
             response.put("error", e.getMessage());
-            return new ResponseEntity<>(response, HttpStatus.UNPROCESSABLE_ENTITY);
+            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
         }
 
         var accountMap = new ObjectMapper().convertValue(account, Map.class);
@@ -118,7 +122,7 @@ public class AccountController {
         } catch (RuntimeException e) {
             Map<String, Object> response = new HashMap<>();
             response.put("error", e.getMessage());
-            return new ResponseEntity<>(response, HttpStatus.UNPROCESSABLE_ENTITY);
+            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
         }
 
         var accountMap = new ObjectMapper().convertValue(fromAccount, Map.class);
@@ -135,7 +139,7 @@ public class AccountController {
         } catch (RuntimeException e) {
             Map<String, Object> response = new HashMap<>();
             response.put("error", e.getMessage());
-            return new ResponseEntity<>(response, HttpStatus.UNPROCESSABLE_ENTITY);
+            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
         }
 
         return new ResponseEntity<>(
